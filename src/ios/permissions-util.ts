@@ -40,35 +40,37 @@ export class PermissionsUtil {
 
     // Request Location permissions (true for always mode)
     public requestLocationPermission(always: boolean = false): Promise<PermissionStatus> {
+        let permissionStatus = this.getLocationPermissionStatus(always);
+
+        if (!this._locationListener) {
+            this._locationListener = new LocationListener();
+        }
+
+        if (!this._locationManager) {
+            this._locationManager = new CLLocationManager();
+            this._locationManager.delegate = this._locationListener;
+            this._locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        }
+
+
+        if (always) {
+            console.log("Requesting always permission");
+            this._locationListener.setAlways();
+            this._locationManager.requestAlwaysAuthorization();
+        }
+        else {
+            console.log("Requesting in use permission");                
+            this._locationListener.setWheninUse();
+            this._locationManager.requestWhenInUseAuthorization();
+        }
+        
         return new Promise((resolve, reject) => {
             // Get current permissions status
-            let permissionStatus = this.getLocationPermissionStatus(always);
             if (permissionStatus !== PermissionStatus.Undetermined) {
                 resolve(permissionStatus);
             }
 
-            if (!this._locationListener) {
-                this._locationListener = new LocationListener();
-            }
-
-            if (!this._locationManager) {
-                this._locationManager = new CLLocationManager();
-                this._locationManager.delegate = this._locationListener;
-                this._locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-            }
-
-            this._locationListener.setResolveCallback((res: PermissionStatus) => {
-                resolve(res);
-            });
-
-            if (always) {
-                this._locationListener.setAlways();
-                this._locationManager.requestAlwaysAuthorization();
-            }
-            else {
-                this._locationListener.setWheninUse();
-                this._locationManager.requestWhenInUseAuthorization();
-            }
+            this._locationListener.setResolveCallback(resolve);
         });
     }
 
@@ -102,7 +104,8 @@ export class PermissionsUtil {
 }
 
 class LocationListener extends NSObject implements CLLocationManagerDelegate {
-    public static ObjCProtocols = [CLLocationManagerDelegate]; // tslint:disable-line:variable-name
+    public static ObjCProtocols = [CLLocationManagerDelegate];
+    private _didSetup: boolean;
     private _always: boolean;
     private _resolve: (res: any) => void;
     private _reject: (error: Error) => void;
@@ -119,6 +122,10 @@ class LocationListener extends NSObject implements CLLocationManagerDelegate {
         this._always = false;
     }
     public locationManagerDidChangeAuthorizationStatus(manager: CLLocationManager, status: CLAuthorizationStatus) {
+        if (!this._didSetup) {
+            this._didSetup = true;
+            return;
+        }
         let res = getLocationPermissionStatusFromCLAuthorizationStatus(status, this._always);
         this._resolve(res);
     }

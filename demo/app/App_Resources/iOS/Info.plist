@@ -43,11 +43,17 @@
 			<string>UIInterfaceOrientationLandscapeLeft</string>
 			<string>UIInterfaceOrientationLandscapeRight</string>
 		</array>
+
+		<key>NSCameraUsageDescription</key>
+		<string>Camera usage permissions</string>
 		<key>NSLocationAlwaysUsageDescription</key>
 		<string>Location always usage permissions</string>
 		<key>NSLocationWhenInUseUsageDescription</key>
 		<string>Location when in use permissions</string>
 		<key>NSMicrophoneUsageDescription</key>
-		<string>Microphone usage description</string>
+		<string>Microphone usage permissions</string>
+		<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+		<string>Always and in use location permissions</string>
+		
 	</dict>
 </plist>

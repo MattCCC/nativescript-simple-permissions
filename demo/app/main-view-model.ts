@@ -16,24 +16,26 @@ export class HelloWorldModel extends Observable {
   requestRecordAudio() {
     console.log("Requesting audio recording");
     this.simplePermissions.requestPermission(Permissions.RECORD_AUDIO)
-    .then((res) => console.log("res", res))
+    .then((res) => console.log("record audio permission", res))
     .catch(() => console.log("error"));
   }
 
   requestLocationWhenInUse() {
     console.log("Requesting location when in use");
     this.simplePermissions.requestPermission(Permissions.LOCATION_IN_USE)
-    .then((res) => console.log("res", res)); 
+    .then((res) => console.log("location in use permission", res)); 
   }
 
   requestLocationAlways() {
     console.log("Requesting location always");
-    this.simplePermissions.requestPermission(Permissions.LOCATION_ALWAYS).then((res) => console.log("res", res)); 
+    this.simplePermissions.requestPermission(Permissions.LOCATION_ALWAYS)
+    .then((res) => console.log("location always", res)); 
   }
 
   requestCamera() {
     console.log("Requesting camera");
-    this.simplePermissions.requestPermission(Permissions.CAMERA).then((res)=> console.log("res", res));
+    this.simplePermissions.requestPermission(Permissions.CAMERA)
+    .then((res)=> console.log("camera permission", res));
   }
  
 }
