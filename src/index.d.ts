@@ -1,5 +1,4 @@
-import { Permissions } from './simple-permissions.common';
-import { Common } from './simple-permissions.common';
+import { Common, Permissions } from './simple-permissions.common';
 export declare class SimplePermissions extends Common {
   // define your typings manually
   // or..

@@ -3,5 +3,8 @@
   <StackLayout class="p-20">
     <Label text="{{ message }}" class="t-20 text-center c-black" textWrap="true"/>
     <Button text="Request audio recording" tap="{{ requestRecordAudio }}"/>>
+    <Button text="Request location when in use" tap="{{ requestLocationWhenInUse }}"/>>
+    <Button text="Request always location" tap="{{ requestLocationAlways }}"/>>
+    <Button text="Request camera" tap="{{ requestCamera }}"/>>
   </StackLayout>
 </Page>
