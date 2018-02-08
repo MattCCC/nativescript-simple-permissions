@@ -1,4 +1,4 @@
-import { iOsPermissisonsUtil, PermissionStatus } from './ios/permissions-util.ios';
+import { iOsPermissisonsUtil, PermissionStatus } from './ios/permissions-util';
 import { Common, Permissions } from './simple-permissions.common';
 
 export class SimplePermissions extends Common {
