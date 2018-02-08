@@ -2,5 +2,6 @@
   xmlns:ui="nativescript-simple-permissions">
   <StackLayout class="p-20">
     <Label text="{{ message }}" class="t-20 text-center c-black" textWrap="true"/>
+    <Button text="Request audio recording" tap="{{ requestRecordAudio }}"/>>
   </StackLayout>
 </Page>
