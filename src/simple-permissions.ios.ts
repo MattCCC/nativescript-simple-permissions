@@ -33,6 +33,17 @@ export class SimplePermissions extends Common {
                     break;
             }
         });
-
+    }
+    hasPermission(permission: Permissions): boolean {
+        switch (permission) {
+            case Permissions.RECORD_AUDIO:
+                return iOsPermissisonsUtil.getAudioPermissionStatus() === PermissionStatus.Granted;
+            case Permissions.CAMERA:
+                return iOsPermissisonsUtil.getCameraAuthorizationStatus() === PermissionStatus.Granted;
+            case Permissions.LOCATION_ALWAYS:
+                return iOsPermissisonsUtil.getLocationPermissionStatus(true) === PermissionStatus.Granted;
+            case Permissions.LOCATION_IN_USE:
+                return iOsPermissisonsUtil.getLocationPermissionStatus() === PermissionStatus.Granted;
+        }
     }
 }

@@ -37,5 +37,29 @@ export class HelloWorldModel extends Observable {
     this.simplePermissions.requestPermission(Permissions.CAMERA)
     .then((res)=> console.log("camera permission", res));
   }
+
+  checkRecordAudio() {
+    console.log("Checking audio recording permissions");
+    let res = this.simplePermissions.hasPermission(Permissions.RECORD_AUDIO);
+    console.log("Audio permissions :", res);
+  }
+
+  checkLocationWhenInUse() {
+    console.log("Checking when in use location permissions");
+    let res = this.simplePermissions.hasPermission(Permissions.LOCATION_IN_USE);
+    console.log("When in use location permissions :", res);
+  }
+
+  checkLocationAlways() {
+    console.log("Checking always location permissions");
+    let res = this.simplePermissions.hasPermission(Permissions.LOCATION_ALWAYS);
+    console.log("Always location permissions :", res);
+  }
+
+  checkCamera() {
+    console.log("Checking camera permissions");
+    let res = this.simplePermissions.hasPermission(Permissions.CAMERA);
+    console.log("camera permissions :", res);
+  }
  
 }

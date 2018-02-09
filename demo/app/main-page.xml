@@ -2,9 +2,17 @@
   xmlns:ui="nativescript-simple-permissions">
   <StackLayout class="p-20">
     <Label text="{{ message }}" class="t-20 text-center c-black" textWrap="true"/>
+    
+    <!-- Request -->
     <Button text="Request audio recording" tap="{{ requestRecordAudio }}"/>>
     <Button text="Request location when in use" tap="{{ requestLocationWhenInUse }}"/>>
     <Button text="Request always location" tap="{{ requestLocationAlways }}"/>>
     <Button text="Request camera" tap="{{ requestCamera }}"/>>
+
+    <!-- Check -->
+    <Button text="Check audio recording" tap="{{ checkRecordAudio }}"/>>
+    <Button text="Check location when in use" tap="{{ checkLocationWhenInUse }}"/>>
+    <Button text="Check always location" tap="{{ checkLocationAlways }}"/>>
+    <Button text="Check camera" tap="{{ checkCamera }}"/>>
   </StackLayout>
 </Page>

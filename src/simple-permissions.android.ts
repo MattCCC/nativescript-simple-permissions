@@ -26,6 +26,17 @@ export class SimplePermissions extends Common {
                     break;
             }
         });
+    }
 
+    hasPermission(permission: Permissions): boolean {
+        switch (permission) {
+            case Permissions.RECORD_AUDIO:
+                return permissions.hasPermission(android.Manifest.permission.RECORD_AUDIO);
+            case Permissions.CAMERA:
+                return permissions.hasPermission(android.Manifest.permission.CAMERA);
+            case Permissions.LOCATION_ALWAYS:
+            case Permissions.LOCATION_IN_USE:
+                return permissions.hasPermission(android.Manifest.permission.ACCESS_FINE_LOCATION);
+        }
     }
 }
