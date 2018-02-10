@@ -1,19 +1,17 @@
 # Nativescript Simple Permissions
 
-Add your plugin badges here. See [nativescript-urlhandler](https://github.com/hypery2k/nativescript-urlhandler) for example.
-
 This plugin is a wrap around Nathanael's nativescript-permissions plugin and also provides IOS Permissions with a matching API.
 
 ## (Optional) Prerequisites / Requirements
 
-Describe the prerequisites that the user need to have installed before using your plugin. See [nativescript-firebase plugin](https://github.com/eddyverbruggen/nativescript-plugin-firebase) for example.
+Don't forget to add permissions to `AndroidManifest.xml` for android and `Info.plist` for iOS (Xcode >= 8).
 
 ## Installation
 
-Describe your plugin installation steps. Ideally it would be something like:
+To install simply run
 
 ```javascript
-tns plugin add <your-plugin-name>
+tns plugin add nativescript-simple-permissions
 ```
 
 ## Usage 
@@ -21,12 +19,28 @@ tns plugin add <your-plugin-name>
 Describe any usage specifics for your plugin. Give examples for Android, iOS, Angular if needed. See [nativescript-drop-down](https://www.npmjs.com/package/nativescript-drop-down) for example.
 	
 	```javascript
-    Usage code snippets here
+  import { SimplePermissions } from 'nativescript-simple-permissions';
+  import { Permissions } from 'nativescript-simple-permissions/simple-permissions.common';
+
+export class HelloWorldModel extends Observable {
+  public message: string;
+  private simplePermissions: SimplePermissions;
+
+  constructor() {
+    super();
+
+    this.simplePermissions = new SimplePermissions();
+    this.message = this.simplePermissions.message;
+  }
     ```)
 
 ## API
 
 Describe your plugin methods and properties here. See [nativescript-feedback](https://github.com/EddyVerbruggen/nativescript-feedback) for example.
+
+hasPermission(permission: Permissions) : boolean
+
+requestPermission(permission: Permissions) : Promise<boolean>
     
 | Property | Default | Description |
 | --- | --- | --- |
