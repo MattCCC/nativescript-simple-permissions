@@ -10,7 +10,7 @@ Don't forget to add permissions to `AndroidManifest.xml` for android and `Info.p
 
 To install simply run
 
-```javascript
+```js
 tns plugin add nativescript-simple-permissions
 ```
 
@@ -18,7 +18,7 @@ tns plugin add nativescript-simple-permissions
 
 Describe any usage specifics for your plugin. Give examples for Android, iOS, Angular if needed. See [nativescript-drop-down](https://www.npmjs.com/package/nativescript-drop-down) for example.
 	
-	```javascript
+```js
   import { SimplePermissions } from 'nativescript-simple-permissions';
   import { Permissions } from 'nativescript-simple-permissions/simple-permissions.common';
 
@@ -32,7 +32,7 @@ export class HelloWorldModel extends Observable {
     this.simplePermissions = new SimplePermissions();
     this.message = this.simplePermissions.message;
   }
-    ```)
+```
 
 ## API
 
@@ -41,11 +41,6 @@ Describe your plugin methods and properties here. See [nativescript-feedback](ht
 hasPermission(permission: Permissions) : boolean
 
 requestPermission(permission: Permissions) : Promise<boolean>
-    
-| Property | Default | Description |
-| --- | --- | --- |
-| some property | property default value | property description, default values, etc.. |
-| another property | property default value | property description, default values, etc.. |
     
 ## License
 
