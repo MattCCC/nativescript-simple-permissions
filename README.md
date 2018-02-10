@@ -32,11 +32,24 @@ export class PermissionExample {
 
 ## API
 
-Describe your plugin methods and properties here. See [nativescript-feedback](https://github.com/EddyVerbruggen/nativescript-feedback) for example.
+### Check permissions
 
 hasPermission(permission: Permissions) : boolean
 
+### Request permissions
+
 requestPermission(permission: Permissions) : Promise<boolean>
+
+### Permissions
+
+```js
+export enum Permissions {
+  LOCATION_ALWAYS = 0,
+  LOCATION_IN_USE = 1,
+  RECORD_AUDIO = 2,
+  CAMERA = 3,
+}
+```
     
 ## License
 
