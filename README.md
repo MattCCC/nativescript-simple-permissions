@@ -22,15 +22,11 @@ Describe any usage specifics for your plugin. Give examples for Android, iOS, An
   import { SimplePermissions } from 'nativescript-simple-permissions';
   import { Permissions } from 'nativescript-simple-permissions/simple-permissions.common';
 
-export class HelloWorldModel extends Observable {
-  public message: string;
+export class PermissionExample {
   private simplePermissions: SimplePermissions;
 
   constructor() {
-    super();
-
     this.simplePermissions = new SimplePermissions();
-    this.message = this.simplePermissions.message;
   }
 ```
 
